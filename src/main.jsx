@@ -10,7 +10,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <div className='bg-slate-300'>Hello world!
-     <button className="btn btn-error">Button</button>
+     <button className="btn btn-error">Button !!!</button>
     </div>,
   },
 ]);
