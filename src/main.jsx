@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -10,8 +9,9 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className='bg-slate-300'>Hello world! <button className="btn btn-error">Button</button></div>
-    ,
+    element: <div className='bg-slate-300'>Hello world!
+     <button className="btn btn-error">Button</button>
+    </div>,
   },
 ]);
 
