@@ -19,11 +19,11 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         console.log(name, email, password, photo);
-        
+
 
         // validation
         if (password.length < 6) {
-            console.log('Password must be at least 6 characters');
+            setError('Password must be at least 6 characters');
             return;
         }
 
@@ -35,7 +35,7 @@ const Register = () => {
                 form.reset();
             })
             .catch(error => {
-                console.log(error.message)
+               setError(error.message)
             })
     }
 
@@ -70,6 +70,8 @@ const Register = () => {
                                 </label>
                                 <input type="text" name='photo' placeholder="Enter your photo-URL" className="input input-bordered" required />
                             </div>
+                            <p className='text-red-400 my-2'>{error}</p>
+                            <p className='text-green-400 my-2'>{success}</p>
                             <label className="label">
                                 Already have an account?
                                 <button className="btn btn-active btn-link"><Link to='/login'>Login</Link></button>

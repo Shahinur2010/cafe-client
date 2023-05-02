@@ -1,13 +1,9 @@
 import React from 'react';
 
-
 const Home = () => {
     return (
         <div>
-          <div>
-          <div>text</div>
-          <div>picture</div>
-          </div>
+            <h2>what should be done?</h2>
         </div>
     );
 };

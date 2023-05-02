@@ -11,6 +11,8 @@ const Login = () => {
 
     const handleLogin = e => {
         e.preventDefault();
+        setSuccess('');
+        setError('')
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -19,12 +21,12 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const signedInUser = result.user;
-                console.log(signedInUser);
+                setSuccess("Login Successful");
                 updateUser();
                 form.reset();
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }
 
@@ -32,10 +34,10 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
+                setSuccess('Login Successful')
             })
             .catch(error => {
-                console.log(error.message)
+                setSuccess(error.message)
             })
     }
 
@@ -43,10 +45,10 @@ const Login = () => {
         signInWithGithub()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
+                setSuccess("Login Successful")
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }
 
@@ -73,10 +75,10 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <p className='text-danger'>{error}</p>
-                        <p className='text-success'>{success}</p>
+                        <p className='text-red-400'>{error}</p>
+                        <p className='text-green-400'>{success}</p>
                     </form>
-                    <p className='mb-4 ml-2'>New to Fodige Cafe? <button className="btn btn-active btn-link"><Link to='/register'>Please Register!</Link></button> </p>
+                    <p className='mb-2 ml-4'>New to Fodige Cafe? <button className="btn btn-active btn-link"><Link to='/register'>Please Register!</Link></button> </p>
                     <button onClick={handleGoogleSignIn} className="btn btn-primary my-2">Google Login</button>
                     <button onClick={handleGithubSignIn} className="btn btn-primary mb-2">Github Login</button>
                 </div>
