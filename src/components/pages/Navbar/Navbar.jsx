@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-purple-300 p-4 flex flex-col lg:flex-row">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-3xl font-bold">Fodige-Cafe</a>
+                <a className="btn btn-ghost normal-case text-3xl font-bold">Japanese Fodige-Cafe</a>
             </div>
             <div className="flex flex-col lg:flex-row gap-8 text-lg font-semibold">
                 <Link to='/'>Home</Link>
@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            {user ? <><span>{user?.displayName}</span><img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            {user ? <><span>{user?.displayName}</span><img src="" />
                         <button onClick={handleLogOut} className="btn btn-xs">Sign Out</button></> : <Link to='/login'>Login</Link>}
                         </div>
                     </label>

@@ -7,7 +7,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -38,11 +38,22 @@ const Login = () => {
             })
     }
 
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Please Login !!!</h1>
+                    <h1 className="text-3xl font-semibold">Please Login !!!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body">
@@ -57,9 +68,6 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <Link to="/register" className="label-text-alt link link-hover">Forgot password?</Link>
-                            </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
@@ -67,9 +75,9 @@ const Login = () => {
                         <p className='text-danger'>{error}</p>
                         <p className='text-success'>{success}</p>
                     </form>
-                    <p className='mb-4 ml-2'> <Link to='/register' className='label-text-alt link link-hover'><button className="btn btn-link">New to Auth Master? Please Register!</button></Link></p>
-                    <div><button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
-                    </div>
+                    <p className='mb-4 ml-2'>New to Fodige Cafe? <button className="btn btn-active btn-link"><Link to='/register'>Please Register!</Link></button> </p>
+                    <button onClick={handleGoogleSignIn} className="btn btn-primary my-2">Google Login</button>
+                    <button onClick={handleGithubSignIn} className="btn btn-primary mb-2">Github Login</button>
                 </div>
             </div>
         </div>
