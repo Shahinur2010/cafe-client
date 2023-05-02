@@ -7,7 +7,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGithub, updateUser } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -20,6 +20,7 @@ const Login = () => {
             .then(result => {
                 const signedInUser = result.user;
                 console.log(signedInUser);
+                updateUser();
                 form.reset();
             })
             .catch(error => {

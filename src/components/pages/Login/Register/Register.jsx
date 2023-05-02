@@ -6,21 +6,21 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
     const { user, createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = (e) => {
-        const [error, setError] = useState('');
-        const [success, setSuccess] = useState('');
-
         e.preventDefault();
+        setSuccess('')
+        setError('')
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
         console.log(name, email, password, photo);
-        setSuccess('')
-        setError('')
         
+
         // validation
         if (password.length < 6) {
             console.log('Password must be at least 6 characters');
@@ -43,7 +43,7 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Please Register!</h1>
+                    <h1 className="text-3xl font-semibold">Please Register!!!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">

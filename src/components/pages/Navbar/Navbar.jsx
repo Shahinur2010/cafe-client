@@ -11,7 +11,7 @@ const Navbar = () => {
             .then(() => { })
             .catch(error => console.log(error.message))
     }
-    
+
     return (
         <div className="navbar bg-purple-300 p-4 flex flex-col lg:flex-row">
             <div className="flex-1">
@@ -23,21 +23,12 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            {user ? <><span>{user?.displayName}</span><img src="" />
-                        <button onClick={handleLogOut} className="btn btn-xs">Sign Out</button></> : <Link to='/login'>Login</Link>}
+                            {user && <img src="" />}
                         </div>
                     </label>
-                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                            </a>
-                        </li>
-                    </ul>
-                    {/* {
-                    user ? <><span>{user.email}</span>
+                    {user ? <><span>{user.email}</span>
                         <button onClick={handleLogOut} className="btn btn-xs">Sign Out</button></> : <Link to='/login'>Login</Link>
-                } */}
+                    }
                 </div>
             </div>
         </div>
