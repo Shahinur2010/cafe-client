@@ -5,18 +5,37 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AuthProvider from './components/providers/AuthProvider';
+import Main from './components/layout/Main';
+import Home from './components/pages/Home/Home';
+import Blog from './components/pages/Blog/Blog';
+import Login from './components/pages/Login/Login';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className='bg-slate-300'>Hello world!
-     <button className="btn btn-error">Button !!!</button>
-    </div>,
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      }
+    ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <AuthProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  </AuthProvider>
 )
