@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='absolute'>
-            <h2>copyrighy@japanesefodigecafe reserved</h2>
+        <div>
+            <h2 className='font-semibold text-xl text-center'>copyrighy@japanesefodigecafe reserved</h2>
         </div>
     );
 };
