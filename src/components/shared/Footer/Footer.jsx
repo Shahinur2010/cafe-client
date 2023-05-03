@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <h2 className='font-semibold text-xl text-center'>copyrighy@japanesefodigecafe reserved</h2>
-        </div>
+        <div className='py-6 text-sm text-center text-gray-400'>
+        © 2023 FodigeCafe. All rights reserved.
+      </div>
     );
 };
 

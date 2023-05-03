@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Chef from './Chef/Chef';
+import { useParams } from 'react-router-dom';
 
 const Home = () => {
+    const { id } = useParams();
     const [chefs, setChefs] = useState([]);
 
     useEffect(() => {
@@ -25,7 +27,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-            <h2 className='text-3xl font-semibold text-center my-3'>Remarkable Chefs of Japan</h2>
+            <h2 className='text-3xl font-bold text-center my-6'>Remarkable Chefs of Japan</h2>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                     {
                         chefs.map(chef=> <Chef key={chef.id} chef={chef}></Chef>)
