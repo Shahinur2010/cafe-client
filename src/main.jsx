@@ -15,6 +15,7 @@ import Error from './Error';
 import Chef from './components/pages/Home/Chef/Chef';
 import ChefRecipes from './components/pages/Home/Chef/ChefRecipes';
 import RecipeDetails from './components/layout/RecipeDetails';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        element: <ChefRecipes></ChefRecipes>,
+        element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/recipes/${params.id}`)
       }
     ]
