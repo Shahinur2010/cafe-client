@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Recipe from './Recipe';
 
 const Chef = ({ chef }) => {
     const {picture, name, yearsOfExperience, numRecipes, likes } = chef;
 
-const navigate = useNavigate();
-
     return (
         <div className='mx-auto'>
-            <div className="card w-96 bg-gray-300 shadow-xl my-2">
+            <div className="card w-96 bg-gray-300 shadow-xl my-2 mx-auto">
                 <figure className="px-10 pt-10">
                     <img src={picture} />
                 </figure>
@@ -22,6 +21,7 @@ const navigate = useNavigate();
                     </div>
                 </div>
             </div>
+            {/* <Recipe chef={chef}></Recipe> */}
         </div>
     );
 };

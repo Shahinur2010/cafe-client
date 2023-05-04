@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, chef }) => {
+    const { cookingMethod, ingredients, recipeName, recipeImg, rating } = recipe;
+    // const {picture, name, yearsOfExperience, numRecipes, likes } = chef;
+
     const [favourite, setFavourite] = useState(true);
-
-    const { cookingMethod, ingredients, name, recipeImg, rating } = recipe;
-
     const notify = () => {
             toast("The recipe is your favourite !")
-            setFavourite(false)
+            setFavourite(false);
     };
 
     return (
@@ -17,7 +17,7 @@ const Recipe = ({ recipe }) => {
             <div className="card w-96 bg-base-100 shadow-xl">
                 <figure><img src={recipeImg} alt="" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">Recipe Name: {name}</h2>
+                    <h2 className="card-title">Recipe Name: {recipeName}</h2>
                     <p>Ingredients:
                         <li>{ingredients[0]}</li>
                         <li>{ingredients[1]}</li>
